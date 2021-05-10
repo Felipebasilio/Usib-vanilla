@@ -1,4 +1,4 @@
-import { createQuoteUrl, deleteQuote } from './../CRUD/index';
+import { createQuoteUrl, deleteQuote, editQuoteUrl, editQuote } from './../CRUD/index';
 import { getQuotes } from "../../API_Connection/API_Connection";
 
 const iconCommonClasses = ["d-flex", "fas"];
@@ -17,8 +17,6 @@ function createAddIcon(fatherId: string) {
   if (father) father.appendChild(link);
 }
 
-createAddIcon("addQuote");
-
 function createDeleteIcon(fatherId: string): HTMLElement {
     const link = document.createElement("a");
     link.classList.add("btn");
@@ -30,24 +28,24 @@ function createDeleteIcon(fatherId: string): HTMLElement {
     return link;
 }
 
-function createEditIcon(linkToEditQuotePage: string): HTMLElement {
-  const link = document.createElement("button");
-  link.classList.add("btn");
-  //link.setAttribute("src", linkToEditPage);
+function createEditIcon(): HTMLElement {
+    const link = document.createElement("a");
+    link.classList.add("btn");
+    link.setAttribute("href", editQuoteUrl);
 
-  const icon = document.createElement("i");
+    const icon = document.createElement("i");
 
-  icon.classList.add(...iconCommonClasses, "fa-edit");
-  link.appendChild(icon);
+    icon.classList.add(...iconCommonClasses, "fa-edit");
+    link.appendChild(icon);
 
-  return link;
+    //fillForm()
+
+    return link;
 }
 
 
 export async function fillTable(tableId: string) {
-  const table = document
-    .getElementById(tableId)
-    ?.getElementsByTagName("tbody")[0];
+  const table = document.getElementById(tableId)?.getElementsByTagName("tbody")[0];
   const data = await getQuotes();
   data.forEach((e: any) => {
     if (table) {
@@ -62,8 +60,9 @@ export async function fillTable(tableId: string) {
       row.insertCell(6).innerHTML = e.Quantity;
       
       const row7 = row.insertCell(7);
-      row7.appendChild(createEditIcon("./quote.html"));
-      row7.setAttribute("id", `edit${e.id}`)
+      row7.appendChild(createEditIcon());
+      row7.setAttribute("id", `edit${e.id}`);
+      editQuote(row7.id)
 
       const row8 = row.insertCell(8);
       row8.appendChild(createDeleteIcon(e.id));
@@ -75,3 +74,4 @@ export async function fillTable(tableId: string) {
 }
 
 fillTable("quotesTable");
+createAddIcon("addQuote");

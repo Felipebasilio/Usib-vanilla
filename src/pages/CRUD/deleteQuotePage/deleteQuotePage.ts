@@ -7,9 +7,7 @@ export function deleteQuote(buttonId: string) {
 
     const elementIdToDelete = deleteQuoteButtonId.replace("delete", "");
     
-    if(deleteQuoteButton){
-            console.log(`${api_url}/:${elementIdToDelete}`);
-        
+    if(deleteQuoteButton){        
             deleteQuoteButton.addEventListener("click", (e) => {
                 fetch(`${api_url}/${elementIdToDelete}`, {
                     method: "DELETE",

@@ -35,6 +35,10 @@ module.exports = {
       filename: "createQuotePage.html",
       template: "./src/pages/CRUD/createQuotePage/createQuotePage.html",
     }),
+    new HtmlWebpackPlugin({
+      filename: "editQuotePage.html",
+      template: "./src/pages/CRUD/editQuotePage/editQuotePage.html",
+    }),
     new MiniCssExtractPlugin({
       filename: "styles.css",
     }),

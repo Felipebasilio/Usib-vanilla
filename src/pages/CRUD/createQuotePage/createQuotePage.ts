@@ -43,7 +43,7 @@ if(form){
                 Email: (<HTMLInputElement>document.getElementById("email"))?.value,
             })
         }).then(() => {
-            window.location.replace("quote.html")
+            window.location.replace("quote.html");
         })
 
     });
