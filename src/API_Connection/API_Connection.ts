@@ -6,3 +6,5 @@ export async function getQuotes() {
     return data;
 }
 
+//CRUD Functions
+//POST

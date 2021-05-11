@@ -1,7 +1,7 @@
 import { ButtonType } from './../button/buttonInterface';
 
 
-export var NavBarClasses: string[] = ["navbar", "navbar-expand-md", "navbar-dark", "bg-dark"];
+export var NavBarClasses: string[] = ["navbar", "navbar-expand", "navbar-dark", "bg-dark"];
 export var firstDivClasses: string[] = ["container-fluid"];
 export var firstAAttributes = {
     classes: ["navbar-brand"],
@@ -19,7 +19,7 @@ export var buttonAttrsNav: ButtonType = {
 export var spanClasses: string[] = ["navbar-toggler-icon"];
 export var secondDivClasses: string[] = ["collapse", "navbar-collapse"];
 export var secondDivID: string[] = ["navbarCollapse"];
-export var ulClasses: string[] = ["navbar-nav", "me-auto", "mb-2", "mb-md-0", "px-4"];
+export var ulClasses: string[] = ["navbar-nav", "me-auto", "mb-md-0", "px-4"];
 export var liClasses: string[] = ["navbarCollapse"];
 export var secondAAttributes = {
     classes: ["nav-link"],

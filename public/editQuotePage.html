@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USIB</title>
     <link src="/styles/index.sass" rel="stylesheet">
-<script defer src="bundle.js"></script><link href="styles.css" rel="stylesheet"></head>
+<script defer src="main.bundle.js"></script><link href="main.styles.ea2fcd136716142ea320.css" rel="stylesheet"></head>
 <body>
   <div id="appMainContainer">
 
@@ -23,11 +23,11 @@
         <div class="col-12">
           <h4 class="mb-3">Dados do orçamento</h4>
 
-          <form class="row g-3" id="create-quote-form" action="quote.html">
+          <form class="row g-3" id="edit-quote-form" action="quote.html">
 
             <div class="col-md-6 mt-2">
               <label for="companyName" class="form-label">Nome da empresa:</label>
-              <input type="text" class="form-control" id="companyName" required>
+              <input type="text" class="form-control" id="company-name" required>
               <div class="invalid-feedback">
                 Digite um nome de empresa válido.
               </div>
@@ -82,7 +82,6 @@
             </div>
           </form>
           <script>
-            // fillForm(String((new URL(window.location.href)).searchParams.get("id")));
           </script>
         </div>
       </div>

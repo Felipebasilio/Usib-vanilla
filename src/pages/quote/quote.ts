@@ -1,4 +1,4 @@
-import { createQuoteUrl, deleteQuote, editQuoteUrl, editQuote } from './../CRUD/index';
+import { createQuoteUrl, deleteQuote, editQuoteUrl } from './../CRUD/index';
 import { getQuotes } from "../../API_Connection/API_Connection";
 
 const iconCommonClasses = ["d-flex", "fas"];
@@ -18,6 +18,8 @@ function createAddIcon(fatherId: string) {
 }
 
 function createDeleteIcon(fatherId: string): HTMLElement {
+
+
     const link = document.createElement("a");
     link.classList.add("btn");
     
@@ -26,9 +28,10 @@ function createDeleteIcon(fatherId: string): HTMLElement {
 
     link.appendChild(icon);
     return link;
+
 }
 
-function createEditIcon(): HTMLElement {
+function createEditIcon(elementIdToEdit: string): HTMLElement {
     const link = document.createElement("a");
     link.classList.add("btn");
     link.setAttribute("href", editQuoteUrl);
@@ -38,10 +41,30 @@ function createEditIcon(): HTMLElement {
     icon.classList.add(...iconCommonClasses, "fa-edit");
     link.appendChild(icon);
 
-    //fillForm()
+    editQuote(link, elementIdToEdit);
 
     return link;
 }
+
+
+
+export function editQuote(
+  anchorElement: HTMLAnchorElement,
+  anchorElementId: string
+) {
+  const editPage = new URL("http://localhost:8080/editQuotePage.html");
+  editPage.searchParams.set("id", anchorElementId);
+
+  anchorElement.href = editPage.toString();
+
+  anchorElement.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    window.location.replace(anchorElement.href);
+
+  });
+}
+
 
 
 export async function fillTable(tableId: string) {
@@ -60,9 +83,9 @@ export async function fillTable(tableId: string) {
       row.insertCell(6).innerHTML = e.Quantity;
       
       const row7 = row.insertCell(7);
-      row7.appendChild(createEditIcon());
       row7.setAttribute("id", `edit${e.id}`);
-      editQuote(row7.id)
+      row7.appendChild(createEditIcon(e.id));
+
 
       const row8 = row.insertCell(8);
       row8.appendChild(createDeleteIcon(e.id));

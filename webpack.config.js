@@ -15,32 +15,39 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "bundle.js",
+    //TODO: contenthash
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "public"),
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Caching',
       filename: "index.html",
       template: "./src/index.html",
     }),
     new HtmlWebpackPlugin({
+      title: 'Caching',
       filename: "quote.html",
       template: "./src/pages/quote/quote.html",
     }),
-    new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({       
+      title: 'Caching',
       filename: "register.html",
       template: "./src/pages/register/register.html",
     }),
     new HtmlWebpackPlugin({
+      title: 'Caching',
       filename: "createQuotePage.html",
       template: "./src/pages/CRUD/createQuotePage/createQuotePage.html",
     }),
     new HtmlWebpackPlugin({
+      title: 'Caching',
       filename: "editQuotePage.html",
       template: "./src/pages/CRUD/editQuotePage/editQuotePage.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: "[name].styles.[contenthash].css",
     }),
   ],
   module: {

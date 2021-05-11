@@ -74,7 +74,7 @@ export function createNavBar(fatherID: string) {
         secondA.classList.remove("active");
     }
 
-    secondA.innerText = "Orcamentos";
+    secondA.innerText = "Orçamentos";
 
     li.appendChild(secondA);
     

@@ -1,3 +1,4 @@
+import { DATAFROMDB } from './../../../entity/index';
 import { api_url } from './../../../API_Connection/API_Connection';
 
 
@@ -29,6 +30,7 @@ if(form){
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         
+
         fetch(api_url, {
             method: "POST",
             headers: {
