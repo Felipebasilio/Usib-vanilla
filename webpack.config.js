@@ -44,6 +44,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.ts$/,
+        use: "ts-loader",
+        include: [path.resolve(__dirname, "src")],
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
