@@ -22,27 +22,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Caching',
       filename: "index.html",
       template: "./src/index.html",
     }),
     new HtmlWebpackPlugin({
-      title: 'Caching',
       filename: "quote.html",
       template: "./src/pages/quote/quote.html",
     }),
-    new HtmlWebpackPlugin({       
-      title: 'Caching',
-      filename: "register.html",
-      template: "./src/pages/register/register.html",
-    }),
     new HtmlWebpackPlugin({
-      title: 'Caching',
       filename: "createQuotePage.html",
       template: "./src/pages/CRUD/createQuotePage/createQuotePage.html",
     }),
     new HtmlWebpackPlugin({
-      title: 'Caching',
       filename: "editQuotePage.html",
       template: "./src/pages/CRUD/editQuotePage/editQuotePage.html",
     }),

@@ -1,5 +1,5 @@
 import { createQuoteUrl, deleteQuote, editQuoteUrl } from './../CRUD/index';
-import { getQuotes } from "../../API_Connection/API_Connection";
+import { readData } from "../../API_Connection/API_Connection";
 
 const iconCommonClasses = ["d-flex", "fas"];
 
@@ -46,8 +46,6 @@ function createEditIcon(elementIdToEdit: string): HTMLElement {
     return link;
 }
 
-
-
 export function editQuote(
   anchorElement: HTMLAnchorElement,
   anchorElementId: string
@@ -65,11 +63,9 @@ export function editQuote(
   });
 }
 
-
-
 export async function fillTable(tableId: string) {
   const table = document.getElementById(tableId)?.getElementsByTagName("tbody")[0];
-  const data = await getQuotes();
+  const data = await readData();
   data.forEach((e: any) => {
     if (table) {
       let row = table.insertRow();

@@ -1,5 +1,4 @@
 export interface DATAFROMDB {
-    id: string;
     Product: string;
     CompanyName: string;
     QuoteDate: string;

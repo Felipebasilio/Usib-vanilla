@@ -1,5 +1,5 @@
 import { DATAFROMDB } from './../../../entity/index';
-import { api_url } from './../../../API_Connection/API_Connection';
+import { api_url, postData } from './../../../API_Connection/API_Connection';
 
 
 export const createQuoteUrl = "./createQuotePage.html";
@@ -25,28 +25,22 @@ suggestTodayDateValue();
 const formId = "create-quote-form";
 const form = document.getElementById(formId)
 if(form){
-    window.addEventListener("DOMContentLoaded", (e) => {    
-    
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        
-
-        fetch(api_url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
+    window.addEventListener("DOMContentLoaded", (e) => {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formValues: DATAFROMDB = {
                 Product: (<HTMLInputElement>document.getElementById("product"))?.value,
-                CompanyName: (<HTMLInputElement>document.getElementById("company-name"))?.value,
+                CompanyName: (<HTMLInputElement>document.getElementById ("company-name"))?.value,
                 QuoteDate: (<HTMLInputElement>document.getElementById("quote-date"))?.value,
                 Adress: (<HTMLInputElement>document.getElementById("adress"))?.value,
-                Quantity: (<HTMLInputElement>document.getElementById("quantity"))?.value,
+                Quantity: parseInt((<HTMLInputElement>document.getElementById("quantity"))?.value),
                 Email: (<HTMLInputElement>document.getElementById("email"))?.value,
-            })
-        }).then(() => {
-            window.location.replace("quote.html");
-        })
+            };
+            
+            postData(formValues).then(() => {
+                window.location.replace("quote.html");
+            });
+        
 
     });
     }); 

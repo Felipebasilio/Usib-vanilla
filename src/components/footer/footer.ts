@@ -1,4 +1,4 @@
-export var footerClasses: string[] = ["footer", "py-3", "bg-light"];
+export var footerClasses: string[] = ["footer", "py-3", "bg-light", "fixed-bottom"];
 
 function linkToReferences(father: HTMLElement){
     const linkWebpack = document.createElement("a");

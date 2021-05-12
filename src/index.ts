@@ -2,6 +2,7 @@ import "bootstrap";
 import "./styles/indexStyles";
 import "./assets/index";
 import "./pages/index";
+import "./entity/index";
 
 import "./API_Connection/API_Connection";
 

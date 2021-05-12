@@ -1,20 +1,17 @@
-import { api_url } from './../../../API_Connection/API_Connection';
+import { deleteData } from './../../../API_Connection/API_Connection';
 
 
-export function deleteQuote(buttonId: string) {
-    const deleteQuoteButtonId = buttonId;
-    const deleteQuoteButton = document.getElementById(deleteQuoteButtonId);
+export function deleteQuote(anchorId: string) {
+    const deleteQuoteAnchorId = anchorId;
+    const deleteQuoteAnchor = document.getElementById(deleteQuoteAnchorId);
 
-    const elementIdToDelete = deleteQuoteButtonId.replace("delete", "");
     
-    if(deleteQuoteButton){        
-            deleteQuoteButton.addEventListener("click", (e) => {
-                fetch(`${api_url}/${elementIdToDelete}`, {
-                    method: "DELETE",
-                }).then(() => {
-                    window.location.replace("quote.html");
-                })
-            });
+    if(deleteQuoteAnchor){        
+        deleteQuoteAnchor.addEventListener("click", (e) => {
+            deleteData(anchorId).then(() => {
+                window.location.replace("quote.html");
+            })
+        });
     }   
 
 }
