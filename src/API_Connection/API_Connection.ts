@@ -48,8 +48,9 @@ export async function editData(data: DATAFROMDB, id: string) {
 
 //DELETE Request
 export async function deleteData(id: string) {
-    fetch(`${api_url}/${id}`, {
-        method: "DELETE",
+    console.log(id)
+    await fetch(`${api_url}/${id}`, {
+        method: "DELETE"
     })
     
 }
