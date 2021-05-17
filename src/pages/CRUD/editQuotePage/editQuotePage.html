@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="shortcut icon" href="./assets/logoUsib.png"> 
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USIB</title>
+    <link src="/styles/index.sass" rel="stylesheet">
+</head>
+<body>
+  <div id="appMainContainer" class="vh-100">
+    <div class="container" class="vh-100">
+      <main class="vh-100">
+        <div class="py-5 text-center">
+          <img class="mx-auto mb-4" src="/assets/logoUsib.png" alt="" width="auto" height="auto">
+          <h2>Formulário de cadastro de orçamento</h2>
+          <p class="lead">Preencha o formulário abaixo com os dados do produto para ser orçado e <br>retornaremos logo em seguida com o valor da compra!</p>
+        </div>
+    
+        <div class="row g-5">
+          <div class="col-12">
+            <h4 class="mb-3">Dados do orçamento</h4>
+
+            <form class="row g-3" id="edit-quote-form" action="quote.html">
+
+              <div class="col-md-6 mt-2">
+                <label for="companyName" class="form-label">Nome da empresa:</label>
+                <input type="text" class="form-control" id="company-name" required>
+                <div class="invalid-feedback">
+                  Digite um nome de empresa válido.
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-2">
+                <label for="email" class="form-label">Email de contato:</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">
+                  Digite um email válido.
+                </div>
+              </div>
+
+              <div class="col-6 mt-2">
+                <label for="adress" class="form-label">Endereço:</label>
+                <input type="text" class="form-control" id="adress" required>
+                <div class="invalid-feedback">
+                  Digite um endereço válido.
+                </div>
+              </div>
+
+              <div class="col-6 mt-2">
+                <label for="quote-date" class="form-label">Data do orçamento:</label>
+                <input type="date" class="form-control" id="quote-date" required>
+                <div class="invalid-feedback">
+                  Selecione uma data válida.
+                </div>
+              </div>
+              
+              <div class="col-6 mt-2 ">
+                  <label for="product" class="form-label">Produto</label>
+                  <select class="form-select custom-select" id="product" required>
+                    <option selected disabled value="">Selecione...</option>
+                    <option value="Parafuso">Parafuso</option>
+                    <option value="Broca">Broca</option>
+                  </select>
+                  <div class="invalid-tooltip">
+                    Please select a valid state.
+                  </div>
+                </div>
+              
+              <div class="col-6 mt-2">
+                <label for="quantity" class="form-label">Quantidade:</label>
+                <input type="number" class="form-control" id="quantity" required>
+                <div class="invalid-feedback">
+                  Digite uma quantidade(número) valida.
+                </div>
+              </div>
+
+              <div class="col-12 d-flex justify-content-center my-5">
+                <button class="btn btn-primary col-12" type="submit">Solicitar orçamento</button>
+              </div>
+            </form>
+            <script>
+            </script>
+          </div>
+        </div>
+      </main>
+    
+
+    </div>
+  </div>
+
+
+</body>
+</html>
